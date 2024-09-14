@@ -1,4 +1,4 @@
-package com.tipsontech.lms.service;
+package com.tipsontech.lms.service.impl;
 
 import java.util.List;
 
@@ -9,6 +9,9 @@ import com.tipsontech.lms.database.LibraryDatabase;
 import com.tipsontech.lms.models.Book;
 import com.tipsontech.lms.models.BookLoan;
 import com.tipsontech.lms.observer.BookLoanObserver;
+import com.tipsontech.lms.service.ILibrarian;
+import com.tipsontech.lms.service.ILoanManager;
+import com.tipsontech.lms.service.ISearchEngine;
 
 @Service
 public class Librarian implements ILibrarian {
