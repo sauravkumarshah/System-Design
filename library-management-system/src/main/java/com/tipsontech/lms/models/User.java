@@ -15,19 +15,23 @@ import lombok.Data;
 @Table(schema = "lms", name = "users")
 @Data
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long userId;
-	
+
 	@Column(name = "user_name")
 	private String name;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<BookLoan> borrowedBooks;
-	
+
+	public User(String name, String email) {
+		this.name = name;
+		this.email = email;
+	}
 }

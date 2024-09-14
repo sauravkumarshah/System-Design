@@ -1,9 +1,6 @@
 package com.tipsontech.lms.models;
 
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.annotations.ManyToAny;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,27 +17,29 @@ import lombok.Data;
 @Table(schema = "lms", name = "book_loan")
 @Data
 public class BookLoan {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "loan_id")
 	private Long loadId;
-	
+
 	@ManyToMany
 	private User user;
-	
+
 	@ManyToMany
 	private Book book;
-	
+
 	@Column(name = "borrow_date")
-	private Date borrowDate;
-	
-	@Column(name = "return_date")
-	private Date returnDate;
-	
+	private LocalDate borrowDate;
+
+	@Column(name = "due_date")
+	private LocalDate dueDate;
+
+	@Column(name = "returned_date")
+	private LocalDate returnedDate;
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
 	private LoanStatus status;
-	
-	
+
 }
